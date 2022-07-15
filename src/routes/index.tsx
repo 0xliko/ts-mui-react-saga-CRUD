@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Layout from 'components/Layout'
+import LoadingIndicator from 'components/LoadingIndicator'
 
 const HomePage = React.lazy(() => import('pages/HomePage'))
 const CreatePage = React.lazy(() => import('pages/CreatePage'))
@@ -11,7 +12,7 @@ const ItemPage = React.lazy(() => import('pages/ItemPage'))
 
 const AppRoutes = () => (
   <>
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<LoadingIndicator/>}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
