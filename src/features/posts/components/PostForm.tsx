@@ -12,6 +12,7 @@ import { FormTextField } from 'libs/ui/components/FormTextField'
 export type PostFormProps = {
   defaultValues?: PostFormInput
   onSubmitClick(data: PostFormInput): void
+  onDeleteClick?: (data: PostFormInput) => void
 }
 
 export const PostForm = (props: PostFormProps) => {
@@ -24,6 +25,7 @@ export const PostForm = (props: PostFormProps) => {
       body: '',
     },
     onSubmitClick,
+    onDeleteClick
   } = props
 
 
@@ -55,9 +57,9 @@ export const PostForm = (props: PostFormProps) => {
       <Button onClick={handleSubmit(onSubmitClick)} variant={'contained'}>
         { defaultValues.id ? t('home.buttons.update') : t('home.buttons.submit')}
       </Button>
-      <Button onClick={() => reset({...defaultValues,title:'',body:''})} variant={'outlined'}>
-        {t('home.buttons.reset')}
-      </Button>
+      { defaultValues.id && <Button onClick={() => onDeleteClick && onDeleteClick(defaultValues)} variant={'outlined'}>
+        {t('home.buttons.delete')}
+      </Button>}
     </Stack>
   )
 }

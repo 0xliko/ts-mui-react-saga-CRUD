@@ -12,13 +12,18 @@ import LoadingIndicator from '../components/LoadingIndicator'
 
 
 const ItemPage = () => {
-  const { updatePost,messageInfo,clearMessageInfo, processing,fetchOnePost,selectedPost } = usePostService()
+  const { updatePost,messageInfo,clearMessageInfo, processing,fetchOnePost,selectedPost, deletePost } = usePostService()
   const { t } = useTranslation()
   const { id } = useParams();
   const navigate = useNavigate()
   const onUpdatePost = async (data:PostFormInput) => {
     updatePost(data);
   }
+
+  const onDeletePost = async (data:PostFormInput) => {
+    deletePost(data);
+  }
+
   useEffect(()=>{
     if(messageInfo){
       if(messageInfo.type === 'success') {
@@ -40,7 +45,7 @@ const ItemPage = () => {
       {processing && <LoadingIndicator/>}
       <TitleTypography title={t('update.title')} />
       <Container maxWidth="xs">
-        <PostForm onSubmitClick={onUpdatePost}  defaultValues={{id:selectedPost.id,title: selectedPost.title, body: selectedPost.body}}/>
+        <PostForm onSubmitClick={onUpdatePost} onDeleteClick={onDeletePost} defaultValues={{id:selectedPost.id,title: selectedPost.title, body: selectedPost.body}}/>
       </Container>
 
     </>
