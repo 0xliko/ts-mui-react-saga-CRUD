@@ -54,7 +54,7 @@ export const PostForm = (props: PostFormProps) => {
       <Button onClick={handleSubmit(onSubmitClick)} variant={'contained'}>
         { defaultValues.id ? t('home.buttons.update') : t('home.buttons.submit')}
       </Button>
-      <Button onClick={() => reset()} variant={'outlined'}>
+      <Button onClick={() => reset({...defaultValues,title:'',body:''})} variant={'outlined'}>
         {t('home.buttons.reset')}
       </Button>
     </Stack>
