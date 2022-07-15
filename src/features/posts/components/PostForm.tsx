@@ -44,8 +44,9 @@ export const PostForm = (props: PostFormProps) => {
   const { handleSubmit, reset, control } = methods
 
   useEffect(() => {
-    reset(props.defaultValues);
-  }, [props.defaultValues]);
+    console.log("selected values changes", defaultValues)
+    reset(defaultValues);
+  }, [defaultValues.id]);
 
   return (
     <Stack sx={{ pt: 0 }} direction="column" spacing={1} justifyContent="center">
