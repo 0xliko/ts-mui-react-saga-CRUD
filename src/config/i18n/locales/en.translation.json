@@ -1,0 +1,37 @@
+{
+  "home": {
+    "title": "Posts",
+    "form": {
+      "title": "title",
+      "body": "body",
+      "validation": {
+        "title-required": "title can't be empty",
+        "title-max": "title must not exceed {{num}} characters",
+        "body-required": "body can't be empty"
+      }
+    },
+    "buttons": {
+      "submit": "Add new Item",
+      "reset": "Reset",
+      "delete": "Delete",
+      "update": "Update"
+    }
+  },
+  "create": {
+    "title": "Create Item",
+    "back": "Back to Home"
+  },
+  "update": {
+    "title": "Update Item",
+    "back": "Back to Home"
+  },
+  "company": {
+    "title": "SETVI"
+  },
+  "navigation": {
+    "links": {
+      "home": "Home",
+      "create": "Create"
+    }
+  }
+}
